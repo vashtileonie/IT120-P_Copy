@@ -1,0 +1,13 @@
+.bg-login-image {
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.alert.alert-success p {
+    margin-bottom: 0 !important;
+}
+
+.alert.alert-danger ul {
+    margin-bottom: .65rem;
+}

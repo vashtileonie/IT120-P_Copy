@@ -1,0 +1,40 @@
+.alert{
+    padding: 0.25rem 0.75rem;
+}
+
+.alert.alert-success p {
+    margin-bottom: 0 !important;
+}
+
+.alert.alert-danger ul {
+    margin-bottom: .65rem;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #718096;
+    border-color: #718096;
+}
+
+.tooltip-inner {
+    text-align: left;
+}
+
+.tooltip-inner ul {
+    margin-top: 10px !important;
+    padding-left: 15px !important;
+}
+
+.select2-container--bootstrap .select2-selection--single {
+    height: 40px !important;
+    padding: 8px 24px 8px 12px !important;
+}
+
+form.form-inline .form-group label {
+    margin-right: 0.5rem;
+}
+
+.dashboard a:hover {
+    text-decoration: none;
+}
