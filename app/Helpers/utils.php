@@ -162,6 +162,13 @@ if (! function_exists('rememberNav')) {
     }
 }
 
+if (! function_exists('rememberGuestNav')) {
+    function rememberGuestNav(string $main_nav = '') {
+        Session::put('topbar', $main_nav);
+    }
+}
+
+
 if (! function_exists('tool_tip')) {
 
     /**

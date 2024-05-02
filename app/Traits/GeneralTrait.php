@@ -17,9 +17,16 @@ trait GeneralTrait
     public function setSidebarActiveLink(string $main_nav, string $sub_nav = '')
     {
         $this->middleware(function ($request, $next) use ($main_nav, $sub_nav) {
-
             rememberNav($main_nav, $sub_nav);
+            return $next($request);
+        });
+    }
 
+
+    public function setTopGuestActiveLink(string $nav)
+    {
+        $this->middleware(function ($request, $next) use ($nav) {
+            rememberGuestNav($nav);
             return $next($request);
         });
     }

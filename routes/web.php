@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'App\Http\Controllers'], function(){ 
 
-    Route::get('/', 'Admin\HomeController@index')->name('login');
+    Route::get('/', 'Admin\HomeController@index')->name('home.index');
+    Route::get('/home', 'Admin\HomeController@index')->name('home.index');
+    Route::get('/about', 'Admin\HomeController@about')->name('home.about');
+    Route::get('/contactus', 'Admin\HomeController@contactus')->name('home.contactus');
     Route::get('/profile', 'Admin\UsersController@profile')->name('users.profile');
-    
+
     Route::group(['namespace' => 'Auth', 'middleware' => ['guest']], function() {
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');

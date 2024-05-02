@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+.justify-text {
+    text-align: justify;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #940C0C !important;
+    font-weight: bold;
+}
+.about-heading {
+    margin-bottom: 5px; 
+    font-size: 70px;
+}
+.meet-heading{
+    font-size: 50px;
+    color:#940C0C;
+}
+.custom-background {
+    background-color: #f3a9a4;
+}
+.custom-background .row {
+    margin-right: 0;
+    margin-left: 0;
+}
+.text-white {
+    color: #940C0C;
+}
+.text-black {
+    color: rgb(27, 25, 25);
+}
+.resizable {
+    resize: both;
+    overflow: auto;
+}

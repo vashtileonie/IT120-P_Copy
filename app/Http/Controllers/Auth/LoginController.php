@@ -8,12 +8,15 @@ use App\Traits\ConfigTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Illuminate\Support\Facades\Session;
+
+use App\Traits\GeneralTrait;
 
 
 class LoginController extends Controller
 {
     
-    use ConfigTrait;
+    use ConfigTrait, GeneralTrait;
 
 
     public function __construct()
@@ -24,12 +27,15 @@ class LoginController extends Controller
 
     public function show()
     {
+        Session::put('topbar', 'Login');
         return view('auth.login');
     }
 
 
     public function login(LoginRequest $request): RedirectResponse
     {
+        Session::put('topbar', 'Login');
+        
         $credentials = $request->getCredentials();
 
         // if invalid credentials

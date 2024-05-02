@@ -9,7 +9,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Mapua CSA</title>
+        <title>Mapúa University - Center of Student Advising</title>
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -18,13 +18,47 @@
         <link rel="stylesheet" href="{!! url('css/bootstrap.min.css') !!}">
         <link rel="stylesheet" href="{!! url('css/sb-admin-2.min.css') !!}">
         <link rel="stylesheet" href="{!! url('css/guest.css') !!}">
+        <link rel="stylesheet" href="{!! url('css/home.css') !!}">
+        <link rel="stylesheet" href="{!! url('css/about.css') !!}">
+        <link rel="stylesheet" href="{!! url('css/contact.css') !!}">
 
         @yield('styles')
     </head>
+
     <body class="bg-gradient-light">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand">
+                <img src="{!! url('assets/images/logo.svg') !!}" height="50px" alt="Your Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item @if(session()->get('topbar') == 'Home') active @endif">
+                        <a class="nav-link" href="{{ route('home.index') }}">Home</a>
+                    </li>
+                    <li class="nav-item @if(session()->get('topbar') == 'About') active @endif">
+                        <a class="nav-link" href="{{ route('home.about') }}">About</a>
+                    </li>
+                    <li class="nav-item @if(session()->get('topbar') == 'Contact') active @endif">
+                        <a class="nav-link" href="{{ route('home.contactus') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            @if(session()->get('topbar') != 'Login')
+                <a class="btn btn-outline-danger ml-2" href="{{ route('login.show') }}">Login</a>
+            @endif
+        </nav>
+
         <div class="container">
             @yield('content')
         </div>
+
+        <!-- Footer -->
+        @include('layouts.partials.footer')
 
         <script src="{!! url('js/jquery-3.6.0.js') !!}"></script>
         <script src="{!! url('js/jquery-ui.js') !!}"></script>
