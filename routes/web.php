@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function(){ 
 
     Route::get('/', 'Admin\HomeController@index')->name('login');
-    //Route::get('/profile', 'Admin\UsersController@profile')->name('users.profile');
-
+    Route::get('/profile', 'Admin\UsersController@profile')->name('users.profile');
+    
     Route::group(['namespace' => 'Auth', 'middleware' => ['guest']], function() {
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
@@ -37,7 +36,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
             'positions'         => PositionsController::class,
             'employee-statuses' => EmployeeStatusesController::class,
             'programs'          => ProgramsController::class,
-            /*'audit-logs'      => AuditLogsController::class,*/
+            'employees'         => EmployeesController::class,
+            'students'          => StudentsController::class,
+            'srequests'         => SrequestsController::class,
+            'audit-logs'        => AuditLogsController::class,
         ]);
 
         Route::get('/roles/permissions/{role}', 'RolesController@rolePermissions')->name('roles.permissions');

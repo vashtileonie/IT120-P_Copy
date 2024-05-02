@@ -33,8 +33,8 @@
         </a>
         <div id="collapseAcademics" class="collapse @if(session()->get('main_nav') == 'Academics') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if(session()->get('sub_nav') == 'Employees') active @endif" href="#">Employees</a>
-                <a class="collapse-item @if(session()->get('sub_nav') == 'Students') active @endif" href="#">Students</a>
+                <a class="collapse-item @if(session()->get('sub_nav') == 'Employees') active @endif" href="{{ route('employees.index') }}">Employees</a>
+                <a class="collapse-item @if(session()->get('sub_nav') == 'Students') active @endif" href="{{ route('students.index') }}">Students</a>
             </div>
         </div>
     </li>
@@ -42,12 +42,12 @@
     <!-- Nav Item - Transactions -->
     <li class="nav-item @if(session()->get('main_nav') == 'Transactions') active @endif">
         <a class="nav-link @if(session()->get('main_nav') != 'Transactions') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTransactions" aria-expanded="true" aria-controls="collapseTransactions">
-            <i class="fa fa-comments" aria-hidden="true"></i>
+            <i class="fa =" aria-hidden="true"></i>
             <span>Transactions</span>
         </a>
         <div id="collapseTransactions" class="collapse @if(session()->get('main_nav') == 'Transactions') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if(session()->get('sub_nav') == 'Transaction Types') active @endif" href="#">Requests</a>
+                <a class="collapse-item @if(session()->get('sub_nav') == 'Srequests') active @endif" href="{{ route('srequests.index') }}">Student Requests</a>
             </div>
         </div>
     </li>
@@ -71,7 +71,7 @@
     <li class="nav-item @if(session()->get('main_nav') == 'Settings') active @endif">
         <a class="nav-link @if(session()->get('main_nav') != 'Settings') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings">
             <i class="fa fa-cog" aria-hidden="true"></i>
-            <span>Settings</span>
+            <span>Settings and Configurations</span>
         </a>
         <div id="collapseSettings" class="collapse @if(session()->get('main_nav') == 'Settings') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">

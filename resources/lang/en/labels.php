@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /* Advising Types */
@@ -56,7 +55,6 @@ return [
     ,'role_new'             => 'New Role'
     ,'role_edit'            => 'Edit Role'
 
-
     // Permissions
     ,'permission'           => 'Permission|Permissions'
     ,'permission_add'       => 'Add Permission'
@@ -66,14 +64,30 @@ return [
     ,'permissions_view_all' => 'View all permissions'
     ,'roles_view_all'       => 'View all roles'
 
-
     /* Users */
     ,'user'                 => 'User|Users'
     ,'user_add'             => 'Add User'
     ,'user_new'             => 'New User'
     ,'user_edit'            => 'Edit User'
- 
 
+    /* Employees */
+    ,'employee'             => 'Employee|Employees'
+    ,'employee_add'         => 'Add Employee'
+    ,'employee_new'         => 'New Employee'
+    ,'employee_edit'        => 'Edit Employee'
+
+    /* Student */
+    ,'student'              => 'Student|Students'
+    ,'student_add'          => 'Add Student'
+    ,'student_new'          => 'New Student'
+    ,'student_edit'         => 'Edit Student'
+
+    /* Srequest */
+    ,'srequest'                => 'Srequest|Srequests'
+    ,'srequest_add'            => 'Add Srequest'
+    ,'srequest_new'            => 'New Srequest'
+    ,'srequest_edit'           => 'Edit Srequest'
+ 
     /* List - Forms Tables */
     ,'select_w_dash'        => 'Select from list'
     ,'id'                   => 'ID'
