@@ -71,7 +71,7 @@
     <li class="nav-item @if(session()->get('main_nav') == 'Settings') active @endif">
         <a class="nav-link @if(session()->get('main_nav') != 'Settings') collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings">
             <i class="fa fa-cog" aria-hidden="true"></i>
-            <span>Settings and Configurations</span>
+            <span>Configurations</span>
         </a>
         <div id="collapseSettings" class="collapse @if(session()->get('main_nav') == 'Settings') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">

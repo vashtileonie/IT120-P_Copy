@@ -100,7 +100,48 @@ class Employee extends Model
 
     public static function list(Request $request): Builder
     {
-        return self::search()->page($request);
+        return self::search()
+            ->listConditions($request)
+            ->page($request);
+    }
+
+
+    public function scopeListConditions($query, Request $request): Builder
+    {
+        return $query
+                ->when(($request->has('department_id') && ! empty($request->department_id)), function ($q) use ($request) {
+                        $q->whereHas('departments', function ($q1) use ($request) {
+                            $q1->where('department_id', $request->department_id);
+                        });
+                    })
+                ->when(($request->has('position_id') && ! empty($request->position_id)), function ($q) use ($request) {
+                    $q->whereHas('positions', function ($q1) use ($request) {
+                        $q1->where('position_id', $request->position_id);
+                    });
+                })
+                ->when(($request->has('subject_id') && ! empty($request->subject_id)), function ($q) use ($request) {
+                    $q->whereHas('subjects', function ($q1) use ($request) {
+                        $q1->where('subject_id', $request->subject_id);
+                    });
+                });
+    }
+
+
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class)->whereNull('employee_department.deleted_at');
+    }
+
+
+    public function positions()
+    {
+        return $this->belongsToMany(Position::class)->whereNull('employee_position.deleted_at');
+    }
+
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class)->whereNull('employee_subject.deleted_at');
     }
 
 

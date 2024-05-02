@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Employee;
+use App\Models\Department;
+use App\Models\Subject;
+use App\Models\Position;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Traits\AuthUserTrait;
@@ -44,7 +47,11 @@ class EmployeesController extends Controller
             return Employee::dataTablesOf($request)->make(true);
         }
 
-        return view(self::VIEW_DIR . 'index');
+        $departments    = Department::getDataProvider();
+        $subjects       = Subject::getDataProvider();
+        $positions      = Position::getDataProvider();
+
+        return view(self::VIEW_DIR . 'index', compact('departments','subjects','positions'));
     }
 
 

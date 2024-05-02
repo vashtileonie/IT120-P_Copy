@@ -18,14 +18,6 @@
                 <x-admin.table>
                     <x-table.row-item label="role">{{ $user->roles()->first()->name }}</x-table.row-item>
                     <x-table.row-item label="username">{{ $user->username }}</x-table.row-item>
-                    @if ($is_dealer_admin)
-                        <x-table.row-item label="account_type">{{ ucfirst(label('dealer')) }}</x-table.row-item>
-                        <x-table.row-item label="account_name">{{ $user->user_dealer?->name }}</x-table.row-item>
-                    @endif
-                    @if ($is_distributor_admin)
-                        <x-table.row-item label="account_type">{{ ucfirst(label('distributor')) }}</x-table.row-item>
-                        <x-table.row-item label="account_name">{{ $user->user_distributor?->name }}</x-table.row-item>
-                    @endif
                 </x-admin.table>
             </div>
         </div>

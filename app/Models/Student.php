@@ -106,7 +106,44 @@ class Student extends Model
 
     public static function list(Request $request): Builder
     {
-        return self::search()->page($request);
+        return self::search() 
+                ->listConditions($request)
+                ->page($request);
+    }
+
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'program_id', 'id');
+    }
+
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class)->whereNull('student_subject.deleted_at');
+    }
+
+
+    public function scopeListConditions($query, Request $request): Builder
+    {
+        return $query
+                ->when(($request->has('department_id') && ! empty($request->department_id)), function ($q) use ($request) {
+                    $q->where('department_id', $request->department_id);  
+                })
+                ->when(($request->has('program_id') && ! empty($request->program_id)), function ($q) use ($request) {
+                    $q->where('program_id', $request->program_id);
+                })
+                ->when(($request->has('subject_id') && ! empty($request->subject_id)), function ($q) use ($request) {
+                    $q->whereHas('subjects', function ($q1) use ($request) {
+                        $q1->where('subject_id', $request->subject_id);
+                    });
+                });
     }
 
 

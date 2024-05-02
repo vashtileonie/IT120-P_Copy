@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Student;
+use App\Models\Department;
+use App\Models\Subject;
+use App\Models\Program;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Traits\AuthUserTrait;
@@ -44,7 +47,11 @@ class StudentsController extends Controller
             return Student::dataTablesOf($request)->make(true);
         }
 
-        return view(self::VIEW_DIR . 'index');
+        $departments    = Department::getDataProvider();
+        $subjects       = Subject::getDataProvider();
+        $programs       = Program::getDataProvider();
+
+        return view(self::VIEW_DIR . 'index', compact('departments','subjects','programs'));
     }
 
 

@@ -112,6 +112,9 @@ return [
     ,'created_at'           => 'Date Created'
     ,'updated_at'           => 'Date Updated'
     ,'deleted_at'           => 'Date Deleted'
+    ,'gender'               => 'Gender'
+    ,'employee_no'          => 'Employee No.'
+
 
     ,'action'               => 'Action'
     ,'back'                 => 'Back'
